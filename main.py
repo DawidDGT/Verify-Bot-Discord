@@ -4,13 +4,13 @@ from discord.ext import commands, tasks
 import time
 from datetime import datetime, timedelta
 import random
-
+import os
 
 intents = discord.Intents.all()
 intents.members = True
 client = commands.Bot(command_prefix="!", help_command = None,  intents=intents)
 
-
+TOKEN = os.getenv("BOT_TOKEN")
 
 
 
@@ -82,5 +82,5 @@ async def on_message(message):
 
 
 
-client.run(BOT_TOKEN)
+client.run(TOKEN)
 
