@@ -10,7 +10,7 @@ intents = discord.Intents.all()
 intents.members = True
 client = commands.Bot(command_prefix="!", help_command = None,  intents=intents)
 
-TOKEN = os.getenv("BOT_TOKEN")
+
 
 
 
@@ -81,6 +81,6 @@ async def on_message(message):
     await client.process_commands(message)
 
 
-
+TOKEN = os.getenv("BOT_TOKEN")
 client.run(TOKEN)
 
