@@ -44,7 +44,7 @@ async def verify(ctx, kod):
             verifyrole = (discord.utils.get(ctx.guild.roles, name = "brak weryfikacji"))
             await ctx.author.remove_roles(verifyrole)
             await ctx.author.send(embed=embed1)
-            await ctx.channel.purge(limit=3)
+            await ctx.channel.purge(limit=2)
             await ctx.send("Zweryfikowano pomyślnie")
 
 
