@@ -37,15 +37,15 @@ async def verify(ctx, kod):
     global hasloo
     if ctx.channel.id == channel:
         if hasloo == kod:
-            embed1=discord.Embed(title="Weryfikacja", color=0x00fffb,timestamp=datetime.utcnow())
-            embed1.add_field(name="\u200b", value="**Zostałeś/aś zweryfikowany/a!**", inline=False)
+            embed1=discord.Embed(title="Done", color=0x00fffb,timestamp=datetime.utcnow())
+            embed1.add_field(name="\u200b", value="**You have been verified!**", inline=False)
             embed1.set_thumbnail(url = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/White_check_mark_in_dark_green_rounded_square.svg/1024px-White_check_mark_in_dark_green_rounded_square.svg.png")
             embed1.set_footer(text = f"{ctx.author}", icon_url = ctx.author.avatar_url)
             verifyrole = (discord.utils.get(ctx.guild.roles, name = "brak weryfikacji"))
             await ctx.author.remove_roles(verifyrole)
             await ctx.author.send(embed=embed1)
+            await ctx.send("You have been verified!")
             await ctx.channel.purge(limit=2)
-            await ctx.send("Zweryfikowano pomyślnie")
 
 
 
@@ -64,23 +64,21 @@ async def on_member_join(member):
 
 
     channel = member.guild.get_channel(828011225292079124)
-    await channel.send(f"{member.mention}**Your veryfication code:** \n`{hasloo}`")
+    await channel.send(f"{member.mention}**Please type: `!verify {hasloo}`")
 
 
 @client.event
 async def on_message(message):
-    global s
+    global hasloo
     channel = (828011225292079124)
-    if message.channel.id == channel and message.content != "!verify" and message.author != client.user:
+    if message.channel.id == channel and message.content and message.author != client.user:
         await message.delete()
         embed1=discord.Embed(title="ERROR", color=0xff0000,timestamp=datetime.utcnow())
-        embed1.add_field(name="\u200b", value="**Please use !verify (your code)**", inline=False)
+        embed1.add_field(name="\u200b", value=f"**Please use !verify {hasloo}**", inline=False)
         embed1.set_thumbnail(url = "https://emoji.gg/assets/emoji/1326_cross.png")
         await message.author.send(embed=embed1)
 
     await client.process_commands(message)
 
-
 TOKEN = os.getenv("BOT_TOKEN")
 client.run(TOKEN)
-
