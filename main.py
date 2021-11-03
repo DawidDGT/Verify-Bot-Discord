@@ -58,13 +58,13 @@ async def on_member_join(member):
 
     haslo = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-    haslo2 = 5
+    haslo2 = 3
 
     hasloo = "".join(random.sample(haslo,haslo2))
 
 
     channel = member.guild.get_channel(828011225292079124)
-    await channel.send(f"{member.mention}**Please type: `!verify {hasloo}`")
+    await channel.send(f"{member.mention}**Please type:** `!verify {hasloo}`")
 
 
 @client.event
