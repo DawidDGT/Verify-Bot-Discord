@@ -45,7 +45,7 @@ async def v(ctx,kod)
             await ctx.author.remove_roles(verifyrole)
             await ctx.author.send(embed=embed1)
             await ctx.send("You have been verified!")
-            await ctx.channel.purge(limit=2)
+            await ctx.channel.purge(limit=1)
 
 
 
@@ -64,7 +64,7 @@ async def on_member_join(member):
 
 
     channel = member.guild.get_channel(828011225292079124)
-    await channel.send(f"{member.mention}**Please type:** `!verify {hasloo}`")
+    await channel.send(f"{member.mention}**Please type:** `!v {hasloo}`"
 
 
 @client.event
