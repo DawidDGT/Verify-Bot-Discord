@@ -41,7 +41,7 @@ async def verify(ctx, kod):
             embed1.add_field(name="\u200b", value="**You have been verified!**", inline=False)
             embed1.set_thumbnail(url = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/White_check_mark_in_dark_green_rounded_square.svg/1024px-White_check_mark_in_dark_green_rounded_square.svg.png")
             embed1.set_footer(text = f"{ctx.author}", icon_url = ctx.author.avatar_url)
-            verifyrole = (discord.utils.get(ctx.guild.roles, name = "brak weryfikacji"))
+            verifyrole = (discord.utils.get(ctx.guild.roles, name = "weryfikacja"))
             await ctx.author.remove_roles(verifyrole)
             await ctx.author.send(embed=embed1)
             await ctx.send("You have been verified!")
