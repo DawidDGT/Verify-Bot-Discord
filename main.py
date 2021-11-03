@@ -32,7 +32,7 @@ async def sandra(ctx):
 
 
 @client.command()
-async def verify(ctx, kod):
+async def v(ctx,kod)
     channel = (828011225292079124)
     global hasloo
     if ctx.channel.id == channel:
