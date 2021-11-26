@@ -85,8 +85,6 @@ async def on_message(message):
 TOKEN = os.getenv("BOT_TOKEN")
 client.run(TOKEN)
 
-client.run(TOKEN)
-
 
 
 
